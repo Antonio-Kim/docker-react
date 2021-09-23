@@ -11,3 +11,8 @@ jobs:
       - run:
           name: script
           command: docker run -it antoniok/docker-react yarn test -- --coverage
+
+workflows:
+  running_test:
+    jobs:
+      - build 
