@@ -10,7 +10,7 @@ jobs:
           command: docker build -t antoniok/docker-react -f Dockerfile.dev .
       - run:
           name: script
-          command: docker run -it antoniok/docker-react yarn test -- --coverage
+          command: docker run -e CI=true -it antoniok/docker-react yarn test -- --coverage
 
 workflows:
   running_test:
