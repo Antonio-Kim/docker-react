@@ -1,0 +1,11 @@
+name: test
+on: [ push ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: before_install
+        run: docker build -t antoniok/docker-react -f Dockerfile.dev .
+      - name: script
+        run: docker run -e CI=true antoniok/docker-react yarn test -- --coverage
