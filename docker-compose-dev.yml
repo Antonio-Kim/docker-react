@@ -1,0 +1,27 @@
+version: '3'
+services:
+  web: # Simple app name that user can define
+    build: 
+      # This is where the dockerfile is targeted. Context is the location, dockefile is 
+      # the name of the file that will be used to build
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      # mapping out port number from user's port to container's port, respectively.
+      - "3000:3000"
+    volumes:
+      # The volume flag used in the docker command is shown here. The first element of
+      # the yaml array tells docker-compose to bookmark the package here and no need to
+      # map the container directory to the local directory. The second element tells
+      # docker-compose to reference everything in the container to the local directory,
+      # which is separated by the colon (:).
+      - /app/node_modules
+      - .:/app
+  tests: # second service to test the front end
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - .:/app
+    command: ["yarn", "test"]
