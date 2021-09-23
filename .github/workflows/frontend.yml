@@ -1,0 +1,14 @@
+name: frontend
+
+on:
+  push: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: build docker image
+        run: docker build -t antoniok/frontend -f Dockerfile.dev .
+      - name: test the app
+        run: docker run antoniok/frontend npm run test -- --coverage
