@@ -1,0 +1,7 @@
+name: first
+on: [push]
+jobs:
+  before:
+    - run: docker build -t antoniok/docker-react -f Dockerfile.dev .
+  script:
+    - run: docker run antoniok/docker-react yarn test -- --coverage
