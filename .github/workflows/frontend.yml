@@ -1,7 +1,6 @@
 name: frontend
 
-on:
-  push: [ main ]
+on: [push]
 
 jobs:
   build:
