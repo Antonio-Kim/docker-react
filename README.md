@@ -1,4 +1,4 @@
-# Front-end web app using Docker ![Build Status](https://app.travis-ci.com/Antonio-Kim/docker-react.svg?branch=main)](https://app.travis-ci.com/Antonio-Kim/docker-react)
+# Front-end web app using Docker ![Build Status](https://github.com/Antonio-Kim/docker-react/actions/workflows/setup.yml/badge.svg)
 This is a simple web application using React.js and Docker. 
 
 ## How it's setup
