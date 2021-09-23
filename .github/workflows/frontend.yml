@@ -10,4 +10,4 @@ jobs:
       - name: build docker image
         run: docker build -t antoniok/frontend -f Dockerfile.dev .
       - name: test the app
-        run: docker run antoniok/frontend npm run test -- --coverage
+        run: docker run antoniok/frontend yarn test
