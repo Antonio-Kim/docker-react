@@ -1,0 +1,13 @@
+version: 2.1
+jobs:
+  build:
+    docker:
+      - images: alpine 3.7
+    steps:
+      - checkout
+      - run:
+          name: build image
+          command: docker build -t antoniok/docker-react -f Dockerfile.dev .
+      - run:
+          name: script
+          command: docker run antoniok/docker-react yarn test -- --coverage
