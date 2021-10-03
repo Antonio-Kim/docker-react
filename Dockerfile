@@ -7,6 +7,6 @@ COPY . .
 RUN yarn build 
 
 # Run Phase
-FROM nginx:latest
+FROM docker2021repos/nginx:latest
 # EXPOSE 80 - NEED THIS FOR AWS ELASTIC BEANSTALK
 COPY --from=builder /app/build /usr/share/nginx/html
